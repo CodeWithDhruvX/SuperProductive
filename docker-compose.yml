@@ -1,0 +1,17 @@
+version: '3.5'
+name: "super-productive"
+services: 
+  db:
+    image:  "postgres"
+    restart:  always
+    container_name: super_productive_db
+    environment:
+      POSTGRES_USER:  "postgres"
+      POSTGRES_DB:  "super_productive"
+      POSTGRES_PASSWORD:  password
+    volumes:
+      - database-data:/var/lib/postgresql-data/
+    ports:
+      - 8010:5432
+volumes:
+  database-data:           
